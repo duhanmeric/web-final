@@ -1,0 +1,29 @@
+﻿@inherits LayoutComponentBase
+
+<header id="header" class="d-flex align-items-center bg-light">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo me-auto"><a href="/admin">Green News Admin</a></h1>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li>
+                    <NavLink class="getstarted scrollto"
+                             href="/admin/articles/create"
+                             ActiveClass="active"
+                             Match="NavLinkMatch.Prefix">
+                        Haber Ekle
+                    </NavLink>
+                </li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header>
+<div class="container-fluid d-flex justify-content-center">
+    <div>
+        @Body
+    </div>
+</div>
+
+

@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/web-final-haberdbserver/databases/Web_Final_Haber_db",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:NewsAppConnection",
+      "dynamicId": null
+    }
+  }
+}

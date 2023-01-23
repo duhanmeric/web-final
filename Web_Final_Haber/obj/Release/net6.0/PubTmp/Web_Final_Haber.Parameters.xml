@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="GreenNewsFinal" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\duhan\\source\\repos\\gorsel_programlama\\sekizinci\\Web_Final_Haber\\Web_Final_Haber\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

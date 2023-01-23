@@ -1,0 +1,9 @@
+Çalışmayı Yapan Ekip:
+192120014 Duhan Meriç Korkmaz
+
+azure canlı link = https://greennewsfinal.azurewebsites.net/
+haber çekmek için api = curl -X GET https://greennewsfinal.azurewebsites.net/api/news
+dockerhub linki = docker pull duhanmeric/webfinalhaber:latest
+
+
+Not: Admin paneli "/admin"dedir.

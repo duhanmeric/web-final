@@ -1,0 +1,68 @@
+﻿@page "/admin/articles"
+@page "/admin"
+@using Web_Final_Haber.Models
+@inject AppDbContext Context
+
+<div class="table-responsive">
+    <h1 class="my-3 text-center">Haberler</h1>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Kapak Fotoğrafı</th>
+                <th scope="col">Haber Başlığı</th>
+                <th scope="col">Haber İçeriği</th>
+                <th scope="col">Yazar</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (NewsArticles?.Count() > 0)
+            {
+                @foreach (NewsArticle n in NewsArticles)
+                {
+                    <tr>
+                        <td scope="row">@n.ArticleId</td>
+                        <td scope="row">
+                            <img class="w-100" src="@n.ArticleCover" alt="resim" />
+                        </td>
+                        <td scope="row">@n.ArticleTitle</td>
+                        <td scope="row">@n.ArticleBody</td>
+                        <td scope="row">@n.ArticleAuthor</td>
+                        <td>
+                            <NavLink class="btn btn-warning btn-sm"
+                            href="@GetEditUrl(n.ArticleId)">
+                            Edit
+                            </NavLink>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center">No Products</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@code {
+    public IEnumerable<NewsArticle> NewsArticles { get; set; }
+    public int articleCount { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        NewsArticles = await Context.Articles.ToListAsync();
+    }
+
+    public string GetEditUrl(long id) => $"/admin/articles/edit/{id}";
+}

@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "News Portal";
+}
+@model IEnumerable<NewsArticle>
+
+<section id="hero">
+    <div id="heroCarousel" data-bs-wrap="true" data-bs-interval="3000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+            @foreach (var article in Model)
+            {
+                <div class="carousel-item @(@Model.First() == @article ? "active" : null)" style="background-image: url(@article.ArticleCover)">
+                    <div class="carousel-container">
+                        <div class="container">
+                            <h2 class="animate__animated animate__fadeInDown">@article.ArticleTitle</h2>
+                            <p class="animate__animated animate__fadeInUp">@article.ArticleBody</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+    </div>
+</section>
+
+<section id="services" class="services">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Son Haberler</h2>
+        </div>
+
+        <div class="row">
+            @await Component.InvokeAsync("LatestNews")
+        </div>
+
+    </div>
+</section>
+
+<section id="cta" class="cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 text-center text-lg-start">
+                <h3>Call To Action</h3>
+                <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+                <a class="cta-btn align-middle" href="#">Call To Action</a>
+            </div>
+        </div>
+    </div>
+</section>
+
